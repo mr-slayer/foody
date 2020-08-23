@@ -14,7 +14,7 @@ from django.db import models
 #     category=models.CharField(max_length=20,null=True,default=True)
 #     def __str__(self): 
 # 	    return self.title 
-# # declare a new model with a name "GeeksModel" 
+
 
 class Blog(models.Model): 
     heading = models.CharField(max_length = 100,null=True,default=True) 
