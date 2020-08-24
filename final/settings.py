@@ -38,8 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "product"
+    "product",
+    "allauth",   # <--
+    'allauth.account',   # <--
+    'allauth.socialaccount’,   # <--
+    'allauth.socialaccount.providers.google’,
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+ )
+
+
 
 MIDDLEWARE = [
      'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,3 +151,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'streetfoodies20@gmail.com'
 EMAIL_HOST_PASSWORD = 'streetfullwithfoodies'
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = ‘/’
