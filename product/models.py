@@ -34,6 +34,7 @@ class Vendor(models.Model):
     password = models.CharField(max_length = 20,default=True,null=True) 
     img = models.ImageField(upload_to = "vendors",null=True,default=True) 
     shaadi=models.BooleanField(default=False)
+    reward=models.IntegerField(null=True,default=True)
     
 class Appuser(models.Model): 
     mobile = models.CharField(max_length = 50,null=True,default=True,unique=True) 

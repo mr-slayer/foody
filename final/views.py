@@ -1,5 +1,7 @@
 from django.shortcuts import render
 import sqlite3
+import random
+
 # from product.models import Food
 from product.models import Blog
 from django.contrib.auth.models import User,auth
@@ -9,17 +11,29 @@ from final.settings import EMAIL_HOST_USER
 from product.models import Appuser
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_protect
+
 def home(request):
     return render(request,"index.html")
-# def visit(request):
-#     ids=request.GET['ids']
-#     result = Food.objects.filter(id__contains=ids)
-#     # result = Food.objects.get(id=ids)
-#     print(ids)
-#     print(result)
-    
-   
-# return render(request,'visit.html',{'objs':result})
+def qrvisit(request):
+    id=request.GET['id']
+    result = Vendor.objects.filter(id__contains=id)
+    reward=random.randint(0,20)
+    t = Vendor.objects.get(id=id)
+            # print(t.title)
+    t.reward = t.reward+reward  # change field
+    t.save()
+    # result = Food.objects.get(id=ids)
+    # print(ids)
+    print(result)
+    return render(request,'qrprofile.html',{'objs':result,'reward':reward})
+    # return render(request,'visit.html',{'objs':result})
+def visit(request):
+    ids=request.GET['ids']
+    result = Vendor.objects.filter(id__contains=ids)
+    # result = Food.objects.get(id=ids)
+    print(ids)
+    print(result)
+    return render(request,'visit.html',{'objs':result})
 def contact(request):
     return render(request,'contact.html') 
 def about_us(request):

@@ -25,7 +25,8 @@ urlpatterns = [
     path('product/',include('product.urls')),
     path('admin/', admin.site.urls),
     path("",views.home,name="home"),
-    # path("visit",views.visit,name="visit"),
+    path("visit",views.visit,name="visit"),
+    path("qrvisit",views.qrvisit,name="qrvisit"),
     path("contact",views.contact,name="contact"),
     path("about",views.about_us,name="about_us"),
     path("blog",views.blog,name="blog"),
@@ -35,7 +36,9 @@ urlpatterns = [
     path("appuser",views.appuser,name="appuser"),
     path("register",views.register,name="register"),
     path("signup",views.signup,name="signup"),
-    path("ulogin",views.ulogin,name="ulogin")
+    path("ulogin",views.ulogin,name="ulogin"),
+    # path("temp",views.temp,name="temp"),#for testing QR functionality
+    # path("thqrcode",views.qrprofile,name="qrprofile"),#for testing QR functionality
      
 
 ] 

@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "product",
-    "allauth",   # <--
-    'allauth.account',   # <--
-    'allauth.socialaccount’,   # <--
-    'allauth.socialaccount.providers.google’,
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
+    # "allauth",   # <--
+    # 'allauth.account',   # <--
+    # 'allauth.socialaccount’,   # <--
+    # 'allauth.socialaccount.providers.google’,
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
 ]
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
@@ -94,7 +94,7 @@ DATABASES = {
         'NAME':'Foody',
         'HOST':'localhost',
         'USER':'postgres',
-        'PASSWORD':'12345',
+        'PASSWORD':'1234',
     
     }
 }
@@ -153,4 +153,4 @@ EMAIL_HOST_USER = 'streetfoodies20@gmail.com'
 EMAIL_HOST_PASSWORD = 'streetfullwithfoodies'
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = ‘/’
+# LOGIN_REDIRECT_URL = ‘/’

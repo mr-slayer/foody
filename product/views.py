@@ -1,12 +1,12 @@
 from django.shortcuts import render
 import sqlite3
-# from .models import Food
+from .models import Vendor
 
 # Create your views here.
 def show(request):
-    objs=Food.objects.all()
+    objs=Vendor.objects.all()
     #print(objs,"chal rha hai")
-    return render(request,"new.html",{'objs':objs})
+    return render(request,"explore.html",{'objs':objs})
 
 def search(request):
     
@@ -14,7 +14,7 @@ def search(request):
     # cur = conn.cursor()
     # print(cur)
     query=request.GET['q']
-    result = Food.objects.filter(category__contains=query )
+    result = Vendor.objects.filter(title__contains=query )
     print(result)
     # query="'%"+query+"%'"
     # #params = (query)

@@ -1,37 +1,9 @@
+<!-- <h4>this is profile through QR code</h4> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	{%  load static %}
-<title>Explore</title>
-<script>
-                  
-	function send_id(temp){
-// 		var x=document.getElementById(temp).textContent;
-                
-// 				//confirm(x);
-
-var url="/visit?ids="+temp;
-// 		// var x=temp;
-
-	 var req = new XMLHttpRequest();
-		req.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.write(req.responseText)
-                    
-                                                               }
-                else{
-                  document.getElementById('container').innerHTML = '<div class="loader"></div>';
-			
-                }
-                                                               
-  };
-req.open("GET", url, true);
-   req.send();
-
-
-	}
-   
-</script>
+<title>visit through QR code</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travello template project">
@@ -51,7 +23,7 @@ req.open("GET", url, true);
 	<!-- Header -->
 
 	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Home</a>
+		<a class="navbar-brand" href="">Back</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		</button>
@@ -79,11 +51,7 @@ req.open("GET", url, true);
 		  
 			
 		</ul>
-		  <form class="form-inline my-2 my-lg-0" method="GET" action="search">
-			{% csrf_token %}
-			<input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		  </form>
+		  
 		</div>
 	  </nav>
 
@@ -94,7 +62,8 @@ req.open("GET", url, true);
 	<!-- Home -->
 
 	
-
+<h3>visit page through QR code</h3>
+<h4>{{reward}}</h4>
 	
 	
 
@@ -102,12 +71,7 @@ req.open("GET", url, true);
 
 	<div class="destinations" id="destinations">
 		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_subtitle">Food you want</div>
-					<div class="section_title"><h2>Exclusive</h2></div>
-				</div>
-			</div>
+			
 			<!-- missing value -->
 			<div class="row">
 				{% for item in objs %}
@@ -118,13 +82,21 @@ req.open("GET", url, true);
 						<img src={{item.f_img.url}} alt=""><a href="temp.html"></a></img>
 						<div class="spec_offer text-center"><a href="#">Exclusive</a></div>
 					</div>
+					<div><h4>{{item.desc}}</h4><br>
+					<h5>{{item.contact}}</h5>
+				<br>
+			<h5>{{item.time}}</h5></div>
+
 					<div class="destination_content">
 						
 						<div class="destination_price">open time: {{item.time}}</div>
 						<div class="destination_price">{{item.rating}}</div>
 					</div>
-			
-					<button id={{item.id}} type="button" onclick="send_id(this.id)">Visit</button>
+					<div class="buy_now_button"><a href="visit">Visit</a></div>
+					<div class="destination_image">
+						<img src={{item.img.url}} alt=""><a href="temp.html"></a></img>
+					
+					</div>
 				</div>
 				{% endfor %}
 			  </div>
